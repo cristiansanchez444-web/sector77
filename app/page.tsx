@@ -71,9 +71,10 @@ export default function Home() {
           Diseños únicos, holográficos y personalizados.
         </p>
 
-        <button className="mt-10 bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg">
+        <a href="/categorias"
+          className="mt-10 bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg inline-block">
           Ver Categorías
-        </button>
+        </a>
 
       </section>
 {/* CATEGORÍAS */}
