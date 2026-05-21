@@ -1,15 +1,37 @@
+"use client";
+
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
+
 export default function NarutoPackPage() {
+  const { addToCart } = useCart();
+  const router = useRouter();
+
+  function handleBuy() {
+    addToCart({
+      id: Date.now(),
+      title: "Naruto Pack",
+      price: 4500,
+      });
+
+    router.push("/carrito");
+  }
+
   return (
     <main className="min-h-screen bg-black text-white p-10">
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* IMAGEN */}
-        <div className="bg-zinc-900 rounded-2xl h-[500px] flex items-center justify-center border border-purple-500/20">
+        <div className="relative bg-zinc-900 rounded-2xl h-[500px] border border-purple-500/20 overflow-hidden">
 
-          <span className="text-gray-500 text-xl">
-            Imagen Producto
-          </span>
+          <Image
+            src="/stickers/naruto.webp"
+            alt="Naruto Pack"
+            fill
+            className="object-cover"
+          />
 
         </div>
 
@@ -28,7 +50,10 @@ export default function NarutoPackPage() {
             $4500
           </span>
 
-          <button className="bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg">
+          <button
+            onClick={handleBuy}
+            className="bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg"
+          >
             Comprar Ahora
           </button>
 

@@ -1,5 +1,7 @@
 import "./globals.css";
 import Image from "next/image";
+import { CartProvider } from "@/context/CartContext";
+import CartButton from "@/components/CartButton";
 
 export const metadata = {
   title: "Sector 77",
@@ -14,6 +16,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="bg-black text-white">
+
+  <CartProvider>
 
         {/* NAVBAR */}
         <header className="w-full border-b border-purple-500/20 backdrop-blur-md">
@@ -60,6 +64,8 @@ export default function RootLayout({
                 Contacto
               </a>
 
+              <CartButton />
+
             </nav>
 
           </div>
@@ -103,7 +109,7 @@ export default function RootLayout({
           </div>
 
         </footer>
-
+  </CartProvider>
       </body>
     </html>
   );
