@@ -46,7 +46,7 @@ export default function RootLayout({
 
             </a>
 
-            <nav className="hidden md:flex gap-8 text-sm font-semibold">
+            <nav className="flex gap-4 md:gap-8 text-xs md:text-sm font-semibold flex-wrap">
 
               <a href="/" className="hover:text-purple-400 transition">
                 Inicio
