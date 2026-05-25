@@ -1,14 +1,35 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 export default function CarritoPage() {
   const { cart, removeFromCart } = useCart();
+  const router = useRouter();
 
   const total = cart.reduce(
     (acc, item) => acc + item.price,
     0
   );
+
+  async function handleCheckout() {
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+      });
+
+      const data = await response.json();
+
+      console.log(data);
+
+      if (data.init_point) {
+        router.push(data.init_point);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <main className="min-h-screen bg-black text-white p-10">
@@ -79,9 +100,13 @@ export default function CarritoPage() {
 
             </div>
 
-            <button className="w-full bg-purple-600 hover:bg-purple-500 transition py-4 rounded-2xl text-xl font-black">
+            <button
+              onClick={handleCheckout}
+              className="w-full bg-purple-600 hover:bg-purple-500 transition py-4 rounded-2xl text-xl font-black"
+            >
               Finalizar Compra
             </button>
+
           </>
         )}
 
