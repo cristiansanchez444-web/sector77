@@ -8,7 +8,7 @@ export default function CarritoPage() {
   const router = useRouter();
 
   const total = cart.reduce(
-    (acc, item) => acc + item.price,
+    (acc, item) => acc + item.price * item.quantity,
     0
   );
 
@@ -16,6 +16,20 @@ export default function CarritoPage() {
     try {
       const response = await fetch("/api/checkout", {
         method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          items: cart.map((item) => ({
+            id: item.id.toString(),
+            title: item.title,
+            quantity: 1,
+            unit_price: item.price,
+            currency_id: "ARS",
+          })),
+        }),
       });
 
       const data = await response.json();
@@ -64,12 +78,16 @@ export default function CarritoPage() {
                       Producto premium.
                     </p>
 
+                    <p className="text-purple-400 font-bold">
+                    Cantidad: {item.quantity}
+                    </p>
+
                   </div>
 
                   <div className="flex items-center gap-4">
 
                     <span className="text-2xl font-black text-purple-400">
-                      ${item.price}
+                      ${item.price * item.quantity}
                     </span>
 
                     <button

@@ -5,28 +5,23 @@ const client = new MercadoPagoConfig({
   accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN!,
 });
 
-export async function POST() {
+export async function POST(req: Request) {
   try {
+    const body = await req.json();
+
+    const items = body.items;
+
     const preference = new Preference(client);
 
     const response = await preference.create({
       body: {
-        items: [
-          {
-            id: "naruto-pack",
-            title: "Naruto Pack",
-            quantity: 1,
-            unit_price: 4500,
-            currency_id: "ARS",
-          },
-        ],
+        items,
 
         back_urls: {
           success: "http://localhost:3000/gracias",
           failure: "http://localhost:3000/carrito",
           pending: "http://localhost:3000/carrito",
         },
-
       },
     });
 

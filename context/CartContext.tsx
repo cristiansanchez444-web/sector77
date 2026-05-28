@@ -11,18 +11,21 @@ type CartItem = {
   id: number;
   title: string;
   price: number;
+  quantity: number;
 };
 
 type CartContextType = {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: number) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextType>({
   cart: [],
   addToCart: () => {},
   removeFromCart: () => {},
+  clearCart: () => {},
 });
 
 export function CartProvider({
@@ -33,29 +36,53 @@ export function CartProvider({
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-  const savedCart = localStorage.getItem("sector77-cart");
+    const savedCart = localStorage.getItem("cart");
 
-  if (savedCart) {
-    setCart(JSON.parse(savedCart));
-  }
-}, []);
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
 
-useEffect(() => {
-  localStorage.setItem(
-    "sector77-cart",
-    JSON.stringify(cart)
-  );
-}, [cart]);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function addToCart(item: CartItem) {
-    setCart((prev) => [...prev, item]);
-  }
+  setCart((prev) => {
+    const existingItem = prev.find(
+      (i) => i.id === item.id
+    );
+
+    if (existingItem) {
+      return prev.map((i) =>
+        i.id === item.id
+          ? {
+              ...i,
+              quantity: i.quantity + 1,
+            }
+          : i
+      );
+    }
+
+    return [
+      ...prev,
+      {
+        ...item,
+        quantity: 1,
+      },
+    ];
+  });
+}
 
   function removeFromCart(id: number) {
-  setCart((prev) =>
-    prev.filter((item) => item.id !== id)
-  );
-}
+    setCart((prev) =>
+      prev.filter((item) => item.id !== id)
+    );
+  }
+
+  function clearCart() {
+    setCart([]);
+  }
 
   return (
     <CartContext.Provider
@@ -63,6 +90,7 @@ useEffect(() => {
         cart,
         addToCart,
         removeFromCart,
+        clearCart,
       }}
     >
       {children}
