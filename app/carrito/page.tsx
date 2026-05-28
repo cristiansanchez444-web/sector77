@@ -4,7 +4,13 @@ import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 
 export default function CarritoPage() {
-  const { cart, removeFromCart } = useCart();
+  const {
+    cart,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
+
   const router = useRouter();
 
   const total = cart.reduce(
@@ -25,7 +31,7 @@ export default function CarritoPage() {
           items: cart.map((item) => ({
             id: item.id.toString(),
             title: item.title,
-            quantity: 1,
+            quantity: item.quantity,
             unit_price: item.price,
             currency_id: "ARS",
           })),
@@ -78,9 +84,27 @@ export default function CarritoPage() {
                       Producto premium.
                     </p>
 
-                    <p className="text-purple-400 font-bold">
-                    Cantidad: {item.quantity}
-                    </p>
+                    <div className="flex items-center gap-3 mt-2">
+
+                      <button
+                        onClick={() => decreaseQuantity(item.id)}
+                        className="bg-zinc-800 hover:bg-zinc-700 w-8 h-8 rounded-lg font-black"
+                      >
+                        -
+                      </button>
+
+                      <span className="text-purple-400 font-bold">
+                        {item.quantity}
+                      </span>
+
+                      <button
+                        onClick={() => increaseQuantity(item.id)}
+                        className="bg-zinc-800 hover:bg-zinc-700 w-8 h-8 rounded-lg font-black"
+                      >
+                        +
+                      </button>
+
+                    </div>
 
                   </div>
 

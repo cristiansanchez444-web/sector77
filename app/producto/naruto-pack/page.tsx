@@ -10,10 +10,11 @@ export default function NarutoPackPage() {
 
   function handleBuy() {
     addToCart({
-      id: Date.now(),
+      id: 1,
       title: "Naruto Pack",
       price: 4500,
-      });
+      quantity: 0
+    });
 
     router.push("/carrito");
   }

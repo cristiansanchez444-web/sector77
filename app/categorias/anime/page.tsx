@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard";
+import { animeProducts } from "@/data/products";
 
 export default function AnimePage() {
   return (
@@ -22,29 +23,16 @@ export default function AnimePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <ProductCard
-            title="Naruto Pack"
-            description="Stickers holográficos premium."
-            price="$4500"
-            href="/producto/naruto-pack"
-            image="/stickers/naruto.webp"
-          />
-
-          <ProductCard
-            title="One Piece Pack"
-            description="Stickers holográficos premium."
-            price="$4500"
-            href="/producto/naruto-pack"
-            image="/stickers/onepiece.jpg"
-          />
-
-          <ProductCard
-            title="Dragon Ball Pack"
-            description="Stickers holográficos premium."
-            price="$4500"
-            href="/producto/naruto-pack"
-            image="/stickers/dragonball.webp"
-          />
+          {animeProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              href={product.href}
+              image={product.image}
+            />
+          ))}
 
         </div>
 
