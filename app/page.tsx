@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ProductCard from "@/components/ProductCard";
+import { animeProducts } from "@/data/products";
 
 export default function Home() {
   return (
@@ -24,195 +26,107 @@ export default function Home() {
           Diseños únicos, holográficos y personalizados.
         </p>
 
-        <a href="/categorias"
-          className="mt-10 bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg inline-block">
+        <a
+          href="/categorias"
+          className="mt-10 bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg inline-block"
+        >
           Ver Categorías
         </a>
 
       </section>
-{/* CATEGORÍAS */}
-<section className="max-w-7xl mx-auto px-6 pb-24">
 
-  <h3 className="text-4xl font-black mb-10">
-    Categorías
-  </h3>
+      {/* CATEGORÍAS */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h3 className="text-4xl font-black mb-10">
+          Categorías
+        </h3>
 
-    {/* CARD */}
-    <a href="/categorias/anime" className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <h4 className="text-2xl font-bold mb-2 text-purple-400">
-      Anime
-    </h4>
+          {/* ANIME */}
+          <a
+            href="/categorias/anime"
+            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
+          >
 
-    <p className="text-gray-400">
-      Stickers de anime y manga.
-    </p>
+            <h4 className="text-2xl font-bold mb-2 text-purple-400">
+              Anime
+            </h4>
 
-    </a>
+            <p className="text-gray-400">
+              Stickers de anime y manga.
+            </p>
 
-    {/* CARD */}
-    <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
+          </a>
 
-      <h4 className="text-2xl font-bold mb-2 text-purple-400">
-        Gaming
-      </h4>
+          {/* GAMING */}
+          <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
 
-      <p className="text-gray-400">
-        Diseños gamer y retro.
-      </p>
+            <h4 className="text-2xl font-bold mb-2 text-purple-400">
+              Gaming
+            </h4>
 
-    </div>
+            <p className="text-gray-400">
+              Diseños gamer y retro.
+            </p>
 
-    {/* CARD */}
-    <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
+          </div>
 
-      <h4 className="text-2xl font-bold mb-2 text-purple-400">
-        Autos
-      </h4>
+          {/* AUTOS */}
+          <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
 
-      <p className="text-gray-400">
-        Stickers para autos y motos.
-      </p>
+            <h4 className="text-2xl font-bold mb-2 text-purple-400">
+              Autos
+            </h4>
 
-    </div>
+            <p className="text-gray-400">
+              Stickers para autos y motos.
+            </p>
 
-    {/* CARD */}
-    <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
+          </div>
 
-      <h4 className="text-2xl font-bold mb-2 text-purple-400">
-        Personalizados
-      </h4>
+          {/* PERSONALIZADOS */}
+          <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
 
-      <p className="text-gray-400">
-        Diseños personalizados únicos.
-      </p>
+            <h4 className="text-2xl font-bold mb-2 text-purple-400">
+              Personalizados
+            </h4>
 
-    </div>
+            <p className="text-gray-400">
+              Diseños personalizados únicos.
+            </p>
 
-  </div>
-
-</section>
-
-{/* PRODUCTOS */}
-<section className="max-w-7xl mx-auto px-6 pb-24">
-
-  <h3 className="text-4xl font-black mb-10">
-    Destacados
-  </h3>
-
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-    {/* PRODUCTO */}
-    <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300">
-
-      <div className="h-64 bg-zinc-800 flex items-center justify-center">
-        <span className="text-gray-500">
-          Imagen Sticker
-        </span>
-      </div>
-
-      <div className="p-6">
-
-        <h4 className="text-2xl font-bold mb-2">
-          Pack Anime
-        </h4>
-
-        <p className="text-gray-400 mb-4">
-          Stickers premium holográficos.
-        </p>
-
-        <div className="flex items-center justify-between">
-
-          <span className="text-2xl font-black text-purple-400">
-            $4500
-          </span>
-
-          <button className="bg-purple-600 hover:bg-purple-500 transition px-5 py-2 rounded-xl font-bold">
-            Comprar
-          </button>
+          </div>
 
         </div>
 
-      </div>
+      </section>
 
-    </div>
+      {/* PRODUCTOS */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
 
-    {/* PRODUCTO */}
-    <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300">
+        <h3 className="text-4xl font-black mb-10">
+          Destacados
+        </h3>
 
-      <div className="h-64 bg-zinc-800 flex items-center justify-center">
-        <span className="text-gray-500">
-          Imagen Sticker
-        </span>
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <div className="p-6">
-
-        <h4 className="text-2xl font-bold mb-2">
-          Gaming Pack
-        </h4>
-
-        <p className="text-gray-400 mb-4">
-          Diseños gamer exclusivos.
-        </p>
-
-        <div className="flex items-center justify-between">
-
-          <span className="text-2xl font-black text-purple-400">
-            $5200
-          </span>
-
-          <button className="bg-purple-600 hover:bg-purple-500 transition px-5 py-2 rounded-xl font-bold">
-            Comprar
-          </button>
+          {animeProducts.slice(0, 3).map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              href={product.href}
+              image={product.image}
+            />
+          ))}
 
         </div>
 
-      </div>
+      </section>
 
-    </div>
-
-    {/* PRODUCTO */}
-    <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300">
-
-      <div className="h-64 bg-zinc-800 flex items-center justify-center">
-        <span className="text-gray-500">
-          Imagen Sticker
-        </span>
-      </div>
-
-      <div className="p-6">
-
-        <h4 className="text-2xl font-bold mb-2">
-          Stickers Auto
-        </h4>
-
-        <p className="text-gray-400 mb-4">
-          Diseños para autos y motos.
-        </p>
-
-        <div className="flex items-center justify-between">
-
-          <span className="text-2xl font-black text-purple-400">
-            $3800
-          </span>
-
-          <button className="bg-purple-600 hover:bg-purple-500 transition px-5 py-2 rounded-xl font-bold">
-            Comprar
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
     </main>
   );
-  
 }
