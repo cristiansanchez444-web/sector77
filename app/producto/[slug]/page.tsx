@@ -1,19 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { useCart } from "@/context/CartContext";
+import { products } from "@/data/products";
 
-export default function NarutoPackPage() {
+export default function ProductPage() {
+
+  const params = useParams();
+  const slug = params.slug as string;
+
   const { addToCart } = useCart();
   const router = useRouter();
 
+  const product = products.find(
+    (p) => p.slug === slug
+  );
+
+  if (!product) {
+    return (
+      <main className="min-h-screen bg-black text-white flex items-center justify-center">
+        <h1 className="text-4xl font-black">
+          Producto no encontrado
+        </h1>
+      </main>
+    );
+  }
+
   function handleBuy() {
     addToCart({
-      id: 1,
-      title: "Naruto Pack",
-      price: 4500,
-      quantity: 0
+      id: product!.id,
+      title: product!.title,
+      price: product!.numericPrice,
+      quantity: 1,
     });
 
     router.push("/carrito");
@@ -28,8 +47,8 @@ export default function NarutoPackPage() {
         <div className="relative bg-zinc-900 rounded-2xl h-[500px] border border-purple-500/20 overflow-hidden">
 
           <Image
-            src="/stickers/naruto.webp"
-            alt="Naruto Pack"
+            src={product!.image}
+            alt={product!.title}
             fill
             className="object-cover"
           />
@@ -40,15 +59,15 @@ export default function NarutoPackPage() {
         <div>
 
           <h1 className="text-5xl font-black mb-4">
-            Naruto Pack
+            {product!.title}
           </h1>
 
           <p className="text-gray-400 text-lg mb-8">
-            Stickers holográficos premium de anime.
+            {product!.description}
           </p>
 
           <span className="text-4xl font-black text-purple-400 block mb-8">
-            $4500
+            {product!.price}
           </span>
 
           <button

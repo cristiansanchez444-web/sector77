@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
-import { animeProducts } from "@/data/products";
+import { products } from "@/data/products";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
         </p>
 
         <a
-          href="/categorias"
+          href="/categorias/anime"
           className="mt-10 bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg inline-block"
         >
           Ver Categorías
@@ -61,7 +61,10 @@ export default function Home() {
           </a>
 
           {/* GAMING */}
-          <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
+          <a
+            href="/categorias/gaming"
+            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
+          >
 
             <h4 className="text-2xl font-bold mb-2 text-purple-400">
               Gaming
@@ -71,10 +74,13 @@ export default function Home() {
               Diseños gamer y retro.
             </p>
 
-          </div>
+          </a>
 
           {/* AUTOS */}
-          <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
+          <a
+            href="/categorias/autos"
+            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
+          >
 
             <h4 className="text-2xl font-bold mb-2 text-purple-400">
               Autos
@@ -84,10 +90,13 @@ export default function Home() {
               Stickers para autos y motos.
             </p>
 
-          </div>
+          </a>
 
           {/* PERSONALIZADOS */}
-          <div className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 transition cursor-pointer">
+          <a
+            href="/categorias/personalizados"
+            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
+          >
 
             <h4 className="text-2xl font-bold mb-2 text-purple-400">
               Personalizados
@@ -97,7 +106,7 @@ export default function Home() {
               Diseños personalizados únicos.
             </p>
 
-          </div>
+          </a>
 
         </div>
 
@@ -112,13 +121,13 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {animeProducts.slice(0, 3).map((product) => (
+          {products.slice(0, 3).map((product) => (
             <ProductCard
               key={product.id}
               title={product.title}
               description={product.description}
               price={product.price}
-              href={product.href}
+              href={`/producto/${product.slug}`}
               image={product.image}
             />
           ))}
