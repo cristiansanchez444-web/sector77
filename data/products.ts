@@ -39,7 +39,30 @@ export const products = [
     description: "Diseños gamer premium.",
     price: "$6000",
     numericPrice: 6000,
-    image: "/stickers/ps.webp",
+    image: "/stickers/gaming.jpeg",
     slug: "playstation-pack",
   },
+
+  {
+    id: 5,
+    category: "autos",
+    title: "JDM Pack",
+    description: "Stickers para autos.",
+    price: "$5500",
+    numericPrice: 5500,
+    image: "/stickers/auto.jpeg",
+    slug: "jdm-pack",
+  },
+
+  {
+    id: 6,
+    category: "personalizados",
+    title: "Pack Personalizado",
+    description: "Diseños personalizados.",
+    price: "$7000",
+    numericPrice: 7000,
+    image: "/stickers/custom.webp",
+    slug: "pack-personalizado",
+  },
+
 ];

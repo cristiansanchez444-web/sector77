@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
+import SearchProducts from "@/components/SearchProducts";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
         </p>
 
         <a
-          href="/categorias/anime"
+          href="/categorias"
           className="mt-10 bg-purple-600 hover:bg-purple-500 transition px-8 py-4 rounded-xl font-bold text-lg inline-block"
         >
           Ver Categorías
@@ -35,82 +36,21 @@ export default function Home() {
 
       </section>
 
-      {/* CATEGORÍAS */}
+      {/* BUSCADOR */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
 
-        <h3 className="text-4xl font-black mb-10">
-          Categorías
-        </h3>
+      <h3 className="text-4xl font-black mb-4">
+        Buscar Productos
+      </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <p className="text-gray-400 mb-8">
+        Encontrá rápidamente cualquier sticker o pack.
+      </p>
 
-          {/* ANIME */}
-          <a
-            href="/categorias/anime"
-            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
-          >
+      <SearchProducts />
 
-            <h4 className="text-2xl font-bold mb-2 text-purple-400">
-              Anime
-            </h4>
+    </section>
 
-            <p className="text-gray-400">
-              Stickers de anime y manga.
-            </p>
-
-          </a>
-
-          {/* GAMING */}
-          <a
-            href="/categorias/gaming"
-            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
-          >
-
-            <h4 className="text-2xl font-bold mb-2 text-purple-400">
-              Gaming
-            </h4>
-
-            <p className="text-gray-400">
-              Diseños gamer y retro.
-            </p>
-
-          </a>
-
-          {/* AUTOS */}
-          <a
-            href="/categorias/autos"
-            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
-          >
-
-            <h4 className="text-2xl font-bold mb-2 text-purple-400">
-              Autos
-            </h4>
-
-            <p className="text-gray-400">
-              Stickers para autos y motos.
-            </p>
-
-          </a>
-
-          {/* PERSONALIZADOS */}
-          <a
-            href="/categorias/personalizados"
-            className="bg-zinc-900 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
-          >
-
-            <h4 className="text-2xl font-bold mb-2 text-purple-400">
-              Personalizados
-            </h4>
-
-            <p className="text-gray-400">
-              Diseños personalizados únicos.
-            </p>
-
-          </a>
-
-        </div>
-
-      </section>
 
       {/* PRODUCTOS */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
