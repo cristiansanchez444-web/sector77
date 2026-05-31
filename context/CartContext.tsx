@@ -11,6 +11,10 @@ type CartItem = {
   id: number;
   title: string;
   price: number;
+
+  size?: string;
+  finish?: string;
+
   quantity: number;
 };
 
@@ -54,12 +58,17 @@ export function CartProvider({
   function addToCart(item: CartItem) {
     setCart((prev) => {
       const existingItem = prev.find(
-        (i) => i.id === item.id
+        (i) =>
+          i.id === item.id &&
+          i.size === item.size &&
+          i.finish === item.finish
       );
-
+  
       if (existingItem) {
         return prev.map((i) =>
-          i.id === item.id
+          i.id === item.id &&
+          i.size === item.size &&
+          i.finish === item.finish
             ? {
                 ...i,
                 quantity: i.quantity + 1,
@@ -67,7 +76,7 @@ export function CartProvider({
             : i
         );
       }
-
+  
       return [
         ...prev,
         {

@@ -80,10 +80,31 @@ export default function CarritoPage() {
                       {item.title}
                     </h2>
 
-                    <p className="text-gray-400">
-                      Producto premium.
-                    </p>
+                    <div className="text-gray-400">
 
+                    {item.size && (
+                    <p>
+                      Tamaño: {
+                        item.size === "small"
+                          ? "4 cm"
+                          : item.size === "medium"
+                          ? "7-8 cm"
+                          : "10-12 cm"
+                      }
+                    </p>
+                  )}
+
+                  {item.finish && (
+                    <p>
+                      Terminación: {
+                        item.finish === "classic"
+                          ? "Clásico"
+                          : "Premium"
+                      }
+                    </p>
+                  )}
+
+                    </div>
                     <div className="flex items-center gap-3 mt-2">
 
                       <button

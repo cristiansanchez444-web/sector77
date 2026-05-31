@@ -8,6 +8,7 @@ export const products = [
     numericPrice: 4500,
     image: "/stickers/naruto.webp",
     slug: "naruto-pack",
+    tags: ["naruto", "anime", "manga", "hokage", "konoha"],
   },
 
   {
@@ -19,6 +20,7 @@ export const products = [
     numericPrice: 5200,
     image: "/stickers/onepiece.jpg",
     slug: "one-piece-pack",
+    tags: ["one piece", "luffy", "zoro", "sanji", "anime", "piratas"],
   },
 
   {
@@ -30,6 +32,7 @@ export const products = [
     numericPrice: 3900,
     image: "/stickers/dragonball.webp",
     slug: "dragon-ball-pack",
+    tags: ["dragon ball", "goku", "vegeta", "anime", "saiyajin"],
   },
 
   {
@@ -41,6 +44,7 @@ export const products = [
     numericPrice: 6000,
     image: "/stickers/gaming.jpeg",
     slug: "playstation-pack",
+    tags: ["playstation", "ps5", "ps4", "gaming", "videojuegos", "gamer"],
   },
 
   {
@@ -52,6 +56,7 @@ export const products = [
     numericPrice: 5500,
     image: "/stickers/auto.jpeg",
     slug: "jdm-pack",
+    tags: ["jdm", "autos", "drift", "tuning", "japon", "carros"],
   },
 
   {
@@ -63,6 +68,84 @@ export const products = [
     numericPrice: 7000,
     image: "/stickers/custom.webp",
     slug: "pack-personalizado",
+    tags: ["personalizado", "custom", "nombre", "logo", "empresa"],
   },
 
+  {
+    id: 7,
+    category: "futbol",
+    title: "SAN DIBU MARTINEZ",
+    description:
+      "Sticker premium inspirado en Emiliano Dibu Martínez. Ideal para notebooks, mates y superficies lisas.",
+    price: "$7000",
+    numericPrice: 7000,
+    pricing: {
+      small: {
+        classic: 700,
+        premium: 1000,
+      },
+    
+      medium: {
+        classic: 1100,
+        premium: 1500,
+      },
+    
+      large: {
+        classic: 1500,
+        premium: 2200,
+      },
+    },
+    image: "/stickers/sandibu.webp",
+    slug: "dibu-martinez",
+    tags: [
+      "dibu",
+      "martinez",
+      "emiliano",
+      "argentina",
+      "seleccion",
+      "futbol",
+      "arquero",
+      "qatar",
+      "mundial",
+      "campeon",
+    ],
+  },
+
+  {
+    id: 8,
+    category: "futbol",
+    title: "RITMO CARDÍACO",
+    description:
+      "Sticker ritmo cardíaco corazón Argentina. Ideal para notebooks, mates y superficies lisas.",
+    price: "$7000",
+    numericPrice: 7000,
+    pricing: {
+      small: {
+        classic: 700,
+        premium: 1000,
+      },
+    
+      medium: {
+        classic: 1100,
+        premium: 1500,
+      },
+    
+      large: {
+        classic: 1500,
+        premium: 2200,
+      },
+    },
+    image: "/stickers/ritmocardi.jpg",
+    slug: "ritmo-cardiaco",
+    tags: [
+      "argentina",
+      "corazon",
+      "futbol",
+      "seleccion",
+      "campeon",
+      "mundial",
+      "ritmo",
+      "cardiaco",
+    ],
+  },
 ];

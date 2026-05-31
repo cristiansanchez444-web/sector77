@@ -53,6 +53,20 @@ export default function CategoriasPage() {
             Stickers y packs de autos.
           </p>
         </a>
+        
+         {/* FUTBOL */}
+         <a
+          href="/categorias/futbol"
+          className="bg-zinc-900 p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)] transition duration-300 cursor-pointer block"
+        >
+          <h2 className="text-2xl font-black text-purple-400 mb-2">
+            Fùtbol
+          </h2>
+
+          <p className="text-gray-400">
+            Stickers y packs de futbol.
+          </p>
+        </a>
 
         {/* PERSONALIZADOS */}
         <a
