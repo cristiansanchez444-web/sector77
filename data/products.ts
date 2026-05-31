@@ -73,6 +73,7 @@ export const products = [
 
   {
     id: 7,
+    type: "sticker",
     category: "futbol",
     title: "SAN DIBU MARTINEZ",
     description:
@@ -113,6 +114,7 @@ export const products = [
 
   {
     id: 8,
+    type: "sticker",
     category: "futbol",
     title: "RITMO CARDÍACO",
     description:
