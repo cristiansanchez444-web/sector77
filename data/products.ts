@@ -1,3 +1,20 @@
+const stickerPricing = {
+  small: {
+    classic: 700,
+    premium: 1000,
+  },
+
+  medium: {
+    classic: 1100,
+    premium: 1500,
+  },
+
+  large: {
+    classic: 1500,
+    premium: 2200,
+  },
+};
+
 export const products = [
   {
     id: 1,
@@ -80,22 +97,7 @@ export const products = [
       "Sticker premium inspirado en Emiliano Dibu Martínez. Ideal para notebooks, mates y superficies lisas.",
     price: "$7000",
     numericPrice: 7000,
-    pricing: {
-      small: {
-        classic: 700,
-        premium: 1000,
-      },
-    
-      medium: {
-        classic: 1100,
-        premium: 1500,
-      },
-    
-      large: {
-        classic: 1500,
-        premium: 2200,
-      },
-    },
+    pricing: stickerPricing,
     image: "/stickers/sandibu.webp",
     slug: "dibu-martinez",
     tags: [
@@ -121,22 +123,7 @@ export const products = [
       "Sticker ritmo cardíaco corazón Argentina. Ideal para notebooks, mates y superficies lisas.",
     price: "$7000",
     numericPrice: 7000,
-    pricing: {
-      small: {
-        classic: 700,
-        premium: 1000,
-      },
-    
-      medium: {
-        classic: 1100,
-        premium: 1500,
-      },
-    
-      large: {
-        classic: 1500,
-        premium: 2200,
-      },
-    },
+    pricing: stickerPricing,
     image: "/stickers/ritmocardi.jpg",
     slug: "ritmo-cardiaco",
     tags: [

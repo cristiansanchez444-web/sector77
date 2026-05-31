@@ -37,7 +37,11 @@ export default function SearchProducts() {
               key={product.id}
               title={product.title}
               description={product.description}
-              price={product.price}
+              price={
+                (product as any).type === "sticker"
+                  ? `Desde $${(product as any).pricing.small.classic}`
+                  : product.price
+              }
               href={`/producto/${product.slug}`}
               image={product.image}
             />
