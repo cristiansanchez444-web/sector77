@@ -22,9 +22,9 @@ export default function ProductPage() {
   );
 
   const dynamicPrice =
-  product?.category === "futbol"
-    ? product.pricing?.[size]?.[finish]
-    : product?.numericPrice;
+  (product as any)?.type === "sticker"
+    ? ((product as any).pricing?.[size]?.[finish] ?? 0)
+    : (product?.numericPrice ?? 0);
 
   if (!product) {
     return (
